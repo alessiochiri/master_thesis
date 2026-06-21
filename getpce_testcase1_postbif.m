@@ -1,0 +1,13 @@
+Input_per.Marginals.Type = 'Lognormal';
+Input_per.Marginals.Moments = [8500 200];
+Input_per.Marginals.Bounds = [8000 8800];  
+myInput_per = uq_createInput(Input_per);
+uq_selectInput(myInput_per);
+MetaOpts_periodic.Type = 'Metamodel';
+MetaOpts_periodic.MetaType = 'PCE';
+MetaOpts_periodic.Degree = 1:15;
+MetaOpts_periodic.Method = 'OLS';
+MetaOpts_periodic.ExpDesign.X = X_LHS_HB2b;
+MetaOpts_periodic.ExpDesign.Y = Y_LHS_HB2b;  
+PCE_OLS_HB2 = uq_createModel(MetaOpts_periodic);
+save('PCE_OLS_HB2.mat', 'PCE_OLS_HB2', '-v7.3');
