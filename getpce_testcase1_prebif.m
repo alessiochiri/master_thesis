@@ -2,6 +2,7 @@ rng(100,'twister')
 uqlab
 
 % PCE 1
+% Input: Lognormal Distribution
 
 load dati_LOG_4000_1000.mat
 
@@ -24,6 +25,7 @@ save('PCE_OLS_LOG_4000_1000.mat', 'PCE_OLS_1', '-v7.3');
 clearvars
 
 % PCE 2
+% Input: Normal Distribution
 
 load dati_NORM_4000_1000.mat
 
