@@ -2,7 +2,8 @@ setpath
 rng(100,'twister')
 uqlab
 
-% PCE 1
+% Bootstrap PCE 1
+% Input: Lognormal Distribution
 
 load dati_LOG_4000_1000.mat
 
@@ -24,7 +25,8 @@ PCE_OLS_1b = uq_createModel(MetaOpts_1b);
 save('PCE_OLS_LOG_1_bootstrap.mat', 'PCE_OLS_1b', '-v7.3');
 clearvars
 
-% PCE 6
+% Bootstrap PCE 2
+% Input: Normal Distribution
 
 load dati_NORM_4000_1000.mat
 
