@@ -2,7 +2,7 @@
 % Case 1: Lognormal Distribution, μ=4000, σ=1000
 % =========================================================================
 Input_1.Marginals.Type = 'Lognormal';
-Input_1.Marginals.Parameters = [4000 1000];
+Input_1.Marginals.Moments = [4000 1000];
 Input_1.Marginals.Bounds = [1 8000];
 myInput_1 = uq_createInput(Input_1);
 uq_selectInput(myInput_1);
