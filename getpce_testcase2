@@ -1,0 +1,22 @@
+% Test Case 2: PCE generation
+
+InputA.Marginals(1).Type = 'Lognormal'; % viscosity
+InputA.Marginals(1).Moments = [0.002,0.002];
+InputA.Marginals(1).Bounds = [0.0007,0.01];
+InputA.Marginals(2).Type = 'Uniform'; % velocity
+InputA.Marginals(2).Parameters = [1,5];
+
+load('dati_due_variabili_1.mat');
+myInputA = uq_createInput(InputA);
+MetaOpts_A.Type = 'Metamodel';
+MetaOpts_A.MetaType = 'PCE';
+MetaOpts_A.TruncOptions.qNorm = 0.1:0.1:1;
+MetaOpts_A.qNormEarlyStop = false;
+MetaOpts_A.Degree = 1:40;
+MetaOpts_A.Method = 'LARS';
+MetaOpts_A.LARS.LarsEarlyStop = false;
+MetaOpts_A.ExpDesign.X = XA1;
+MetaOpts_A.ExpDesign.Y = YA1;
+PCE_A = uq_createModel(MetaOpts_A);
+
+save('PCE_due_variabili.mat', 'PCE_A', '-v7.3');
